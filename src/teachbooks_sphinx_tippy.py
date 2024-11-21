@@ -86,7 +86,7 @@ def setup(app: Sphinx):
         """
     )
     app.add_config_value("tippy_doi_template", default_doi_template, "html")
-    app.add_config_value("tippy_enable_mathjax", False, "html")
+    app.add_config_value("tippy_enable_mathjax", True, "html")
     app.add_config_value(
         "tippy_js",
         ("https://unpkg.com/@popperjs/core@2", "https://unpkg.com/tippy.js@6"),
