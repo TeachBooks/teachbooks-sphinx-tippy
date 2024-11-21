@@ -21,6 +21,8 @@ from sphinx.domains.math import MathDomain
 from sphinx.errors import ExtensionError
 from sphinx.util.logging import getLogger
 
+from sphinx.util.fileutil import copy_asset_file
+
 try:
     # sphinx 6.1
     from sphinx.util.display import status_iterator  # type: ignore[import]
