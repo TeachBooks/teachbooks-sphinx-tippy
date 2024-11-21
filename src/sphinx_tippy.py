@@ -29,8 +29,17 @@ except ImportError:
 __version__ = "0.4.3"
 
 
+def copy_stylesheet(app: Sphinx, exc: None) -> None:
+    style = os.path.join(os.path.dirname(__file__), 'static', 'tippy.css')
+    if app.builder.format == 'html' and not exc:
+        staticdir = os.path.join(app.builder.outdir, '_static')
+        copy_asset_file(style, staticdir)
+
 def setup(app: Sphinx):
     """Setup the extension"""
+    app.add_css_file('tippy.css')
+    app.connect('build-finished', copy_stylesheet)
+
     app.add_config_value("tippy_props", {}, "html")
     # config for filtering tooltip creation/showing
     app.add_config_value("tippy_skip_urls", (), "html", [list, tuple])

@@ -5,16 +5,16 @@ from sphinx_tippy import __version__
 
 # -- Project information -----------------------------------------------------
 
-project = "Sphinx Tippy"
+project = "TeachBooks Sphinx Tippy"
 version = __version__
-copyright = f"{date.today().year}, Chris Sewell"
-author = "Chris Sewell"
+copyright = f"{date.today().year}, TeachBooks"
+author = "TeachBooks"
 
 # -- General configuration ---------------------------------------------------
 
 extensions = [
     "myst_parser",
-    "sphinx_tippy",
+    "teachbooks_sphinx_tippy",
 ]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 myst_enable_extensions = ["deflist", "colon_fence"]
@@ -24,7 +24,7 @@ myst_enable_extensions = ["deflist", "colon_fence"]
 html_theme = "furo"
 html_logo = "tippy-logo.svg"
 html_theme_options = {
-    "source_repository": "https://github.com/chrisjsewell/sphinx-tippy/",
+    "source_repository": "https://github.com/TeachBooks/teachbooks-sphinx-tippy/",
     "source_branch": "main",
     "source_directory": "docs/",
 }

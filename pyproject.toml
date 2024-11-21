@@ -3,8 +3,8 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "sphinx_tippy"
-authors = [{name = "Chris Sewell", email = "chrisj_sewell@hotmail.com"}]
+name = "teachbooks_sphinx_tippy"
+authors = [{name = "Chris Sewell", email = "chrisj_sewell@hotmail.com"},{name = "Dennis den Ouden-van der Horst", email = "d.denouden-vanderhorst@tudelft.nl"}]
 readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = [
@@ -14,7 +14,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
 ]
-keywords = ["sphinx", "tooltip", "tippy"]
+keywords = ["sphinx", "tooltip", "tippy","teachbooks"]
 dynamic = ["version", "description"]
 requires-python = ">=3.8"
 dependencies = [
@@ -25,8 +25,8 @@ dependencies = [
 ]
 
 [project.urls]
-Home = "https://github.com/chrisjsewell/sphinx-tippy"
-Documentation = "https://sphinx-tippy.readthedocs.io"
+Home = "https://github.com/TeachBooks/teachbooks-sphinx-tippy"
+Documentation = "https://github.com/TeachBooks/teachbooks-sphinx-tippy"
 
 [project.optional-dependencies]
 testing = [
