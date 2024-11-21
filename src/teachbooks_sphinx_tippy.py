@@ -33,9 +33,9 @@ __version__ = "0.4.3"
 
 def scb_static_path(app):
     print("Deze functie wordt aangeroepen!")
-    app.config.html_static_path.append(
-        str(Path(__file__).parent.joinpath("static").absolute())
-    )
+    print('Laten we de css expliciet schrijven om te kijken of dat werkt')
+    print("html_static_path:",app.config.html_static_path)
+    print("current files Path:",Path(__file__))
 
 def setup(app: Sphinx):
     """Setup the extension"""
