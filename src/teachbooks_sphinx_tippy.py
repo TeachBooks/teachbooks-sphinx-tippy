@@ -32,7 +32,7 @@ except ImportError:
 __version__ = "0.4.3"
 
 def scb_static_path(app):
-    print()
+    print("Deze functie wordt aangeroepen!")
     app.config.html_static_path.append(
         str(Path(__file__).parent.joinpath("static").absolute())
     )
