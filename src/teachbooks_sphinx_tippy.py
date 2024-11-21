@@ -31,17 +31,16 @@ except ImportError:
 
 __version__ = "0.4.3"
 
-
-def copy_stylesheet(app: Sphinx, exc: None) -> None:
-    style = os.path.join(os.path.dirname(__file__), 'static', 'tippy.css')
-    if app.builder.format == 'html' and not exc:
-        staticdir = os.path.join(app.builder.outdir, '_static')
-        copy_asset_file(style, staticdir)
+def scb_static_path(app):
+    app.config.html_static_path.append(
+        str(Path(__file__).parent.joinpath("static").absolute())
+    )
 
 def setup(app: Sphinx):
     """Setup the extension"""
     app.setup_extension('sphinx.ext.mathjax')
     app.add_css_file('tippy.css')
+    app.connect('builder-initiated',scb_static_path)
 
     app.add_config_value("tippy_props", {}, "html")
     # config for filtering tooltip creation/showing
@@ -98,7 +97,6 @@ def setup(app: Sphinx):
     app.connect("builder-inited", compile_config)
     app.connect("html-page-context", collect_tips, priority=450)  # before mathjax
     app.connect("build-finished", write_tippy_js)
-    app.connect('build-finished', copy_stylesheet)
 
     return {"version": __version__, "parallel_read_safe": True}
 
