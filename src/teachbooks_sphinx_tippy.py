@@ -41,7 +41,7 @@ def setup(app: Sphinx):
     """Setup the extension"""
     app.setup_extension('sphinx.ext.mathjax')
     app.add_css_file('tippy.css')
-    app.connect("config-inited",scb_static_path)
+    app.connect("builder-inited",scb_static_path)
 
     app.add_config_value("tippy_props", {}, "html")
     # config for filtering tooltip creation/showing
