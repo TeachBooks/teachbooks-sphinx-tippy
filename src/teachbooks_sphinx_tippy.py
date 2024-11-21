@@ -31,18 +31,19 @@ except ImportError:
 
 __version__ = "0.4.3"
 
-def scb_static_path(app):
-    print("Deze functie wordt aangeroepen!")
-    print('Laten we de css expliciet schrijven om te kijken of dat werkt')
-    print("html_static_path:",app.config.html_static_path)
-    print("current files Path:",Path(__file__))
+def scb_static_path(app,exc):
+    staticdir = os.path.join(app.builder.outdir, '_static')
+    filename = os.path.join(staticdir,'tippy.css')
+    with open(filename,"w") as css:
+        data = ".tippy-box {background-color:var(--pst-color-surface);color:var(--pst-color-text-base);border: 1px solid var(--pst-color-border);}"
+        css.write(data)
+    
 
 def setup(app: Sphinx):
     """Setup the extension"""
     app.setup_extension('sphinx.ext.mathjax')
     app.add_css_file('tippy.css')
-    app.connect("builder-inited",scb_static_path)
-
+    
     app.add_config_value("tippy_props", {}, "html")
     # config for filtering tooltip creation/showing
     app.add_config_value("tippy_skip_urls", (), "html", [list, tuple])
@@ -98,6 +99,7 @@ def setup(app: Sphinx):
     app.connect("builder-inited", compile_config)
     app.connect("html-page-context", collect_tips, priority=450)  # before mathjax
     app.connect("build-finished", write_tippy_js)
+    app.connect("build-finished",scb_static_path)
 
     return {"version": __version__, "parallel_read_safe": True}
 
