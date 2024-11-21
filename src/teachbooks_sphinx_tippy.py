@@ -652,7 +652,7 @@ def write_tippy_js(app: Sphinx, exception: Any):
         tippy_page_data, "Writing tippy data files", length=len(tippy_page_data)
     ):
         write_tippy_props_page(app, pagename, wiki_cache, doi_cache, rtd_cache)
-    copy_stylesheet(app)
+    copy_stylesheet(app,exception)
 
 
 
