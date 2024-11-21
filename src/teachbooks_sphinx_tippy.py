@@ -40,6 +40,7 @@ def copy_stylesheet(app: Sphinx, exc: None) -> None:
 
 def setup(app: Sphinx):
     """Setup the extension"""
+    app.setup_extension('sphinx.ext.mathjax')
     app.add_css_file('tippy.css')
 
     app.add_config_value("tippy_props", {}, "html")
@@ -97,6 +98,8 @@ def setup(app: Sphinx):
     app.connect("builder-inited", compile_config)
     app.connect("html-page-context", collect_tips, priority=450)  # before mathjax
     app.connect("build-finished", write_tippy_js)
+    app.connect('build-finished', copy_stylesheet)
+
     return {"version": __version__, "parallel_read_safe": True}
 
 
@@ -652,8 +655,6 @@ def write_tippy_js(app: Sphinx, exception: Any):
         tippy_page_data, "Writing tippy data files", length=len(tippy_page_data)
     ):
         write_tippy_props_page(app, pagename, wiki_cache, doi_cache, rtd_cache)
-    copy_stylesheet(app,exception)
-
 
 
 def write_tippy_props_page(
