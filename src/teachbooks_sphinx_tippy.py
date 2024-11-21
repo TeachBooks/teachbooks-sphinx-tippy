@@ -41,7 +41,6 @@ def copy_stylesheet(app: Sphinx, exc: None) -> None:
 def setup(app: Sphinx):
     """Setup the extension"""
     app.add_css_file('tippy.css')
-    app.connect('build-finished', copy_stylesheet)
 
     app.add_config_value("tippy_props", {}, "html")
     # config for filtering tooltip creation/showing
@@ -653,6 +652,8 @@ def write_tippy_js(app: Sphinx, exception: Any):
         tippy_page_data, "Writing tippy data files", length=len(tippy_page_data)
     ):
         write_tippy_props_page(app, pagename, wiki_cache, doi_cache, rtd_cache)
+    copy_stylesheet(app)
+
 
 
 def write_tippy_props_page(
