@@ -772,6 +772,8 @@ def write_tippy_props_page(
         if selector_to_html
         else ""
     )
+    content = content.replace(r'<div class=\"applet\" style=\"; \">',r'<div class=\"applet\" style=\"display:none; \">')
+    content = content.replace(r'class=\"applet-print-figure\" ',r'class=\"applet-print-figure\" style=\"display:initial; \"')
 
     data["js_path"].parent.mkdir(parents=True, exist_ok=True)
     with data["js_path"].open("w", encoding="utf8") as handle:
