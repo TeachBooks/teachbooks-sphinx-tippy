@@ -1,7 +1,5 @@
-# sphinx-tippy
+# TeachBooks Sphinx Tippy
 
-![GitHub Repo stars](https://img.shields.io/github/stars/chrisjsewell/sphinx-tippy?label=Like%20and%20Share%21&style=social)
+Rich tool tips in your TeachBook!
 
-Get rich tool tips in your sphinx documentation!
-
-See the documentation for details.
+See the documentation for details (work in progress)

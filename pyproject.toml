@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "teachbooks_sphinx_tippy"
-authors = [{name = "Chris Sewell", email = "chrisj_sewell@hotmail.com"},{name = "Dennis den Ouden-van der Horst", email = "d.denouden-vanderhorst@tudelft.nl"}]
+authors = [{name = "Dennis den Ouden-van der Horst", email = "d.denouden-vanderhorst@tudelft.nl"}]
 readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = [

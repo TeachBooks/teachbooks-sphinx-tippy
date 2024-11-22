@@ -1,8 +1,6 @@
-# Sphinx Tippy
+# TeachBooks Sphinx Tippy
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/chrisjsewell/sphinx-tippy?label=Like%20and%20Share%21&style=social)](https://github.com/chrisjsewell/sphinx-tippy)
-
-Get rich hover tips in your sphinx documentation.
+Rich tool tips in your TeachBook!
 
 [**Hover on me!**](https://atomiks.github.io/tippyjs)
 
@@ -12,21 +10,33 @@ folder/other
 ```
 
 ## Installation
+To install the TeachBooks-Sphinx-Tippy , follow these steps:
 
-Install with pip:
+**Step 1: Install the Package**
 
-```bash
-pip install sphinx-tippy
+Install the `teachbooks-sphinx-tippy` package using `pip`:
+```
+pip install teachbooks-sphinx-tippy
+```
+
+**Step 2: Add to `requirements.txt`**
+
+Make sure that the package is included in your project's `requirements.txt` to track the dependency:
+```
+teachbooks-sphinx-tippy
+```
+
+**Step 3: Enable in `_config.yml`**
+
+In your `_config.yml` file, add the extension to the list of Sphinx extra extensions (**important**: underscore, not dash this time):
+```
+sphinx: 
+    extra_extensions:
+        - teachbooks_sphinx_tippye
 ```
 
 (intro/usage)=
 ## Usage
-
-Add the extension to your `conf.py`:
-
-```python
-extensions = ["sphinx_tippy"]
-```
 
 Now your website will have tooltips on many of your links!
 
@@ -74,31 +84,6 @@ Now your website will have tooltips on many of your links!
 
     This is another paragraph
 
-:::{important}
-Dependent on the theme you ar using with sphinx,
-you may need to add some CSS to your `conf.py` to make the tooltips show correctly.
-
-For example, for the [Pydata Sphinx Theme](https://pydata-sphinx-theme.readthedocs.io):
-
-`conf.py`:
-
-```python
-html_static_path = ['_static']
-html_css_files = ["tippy.css"]
-```
-
-`_static/tippy.css`:
-
-```css
-.tippy-box {
-    background-color:var(--pst-color-surface);
-    color:var(--pst-color-text-base);
-    border: 1px solid var(--pst-color-border);
-}
-```
-
-:::
-
 ## How does it work?
 
 The extension uses the [tippy.js](https://atomiks.github.io/tippyjs) library to create tooltips.
@@ -143,12 +128,10 @@ For example this can be used to change the style of the cursor when hovering ove
 `conf.py`:
 
 ```python
-html_static_path = ['_static']
-html_css_files = ["tippy.css"]
 tippy_add_class = "has-tippy"
 ```
 
-`_static/tippy.css`:
+`_static/extra.css`:
 
 ```css
 .has-tippy:hover {
