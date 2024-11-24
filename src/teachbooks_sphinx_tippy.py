@@ -29,7 +29,12 @@ try:
 except ImportError:
     from sphinx.util import status_iterator
 
-__version__ = "0.4.3"
+# __version__ = "0.4.3"
+try:
+    from ._version import version as __version__
+except ImportError:
+    __version__ = "0.4.3"
+
 
 def scb_static_path(app,exc):
     staticdir = os.path.join(app.builder.outdir, '_static')
