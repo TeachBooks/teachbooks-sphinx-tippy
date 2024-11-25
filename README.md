@@ -1,4 +1,4 @@
-# Shpinx extension: TeachBooks Tippy
+# Sphinx extension: TeachBooks Tippy
 
 Rich tool tips in your TeachBook!
 
