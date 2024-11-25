@@ -1,5 +1,10 @@
 # Sphinx extension: TeachBooks Tippy
 
+```{admonition} User types
+:class: tip
+This page is useful for user type 3, 4 and 5.
+```
+
 Rich tool tips in your TeachBook!
 
 See the documentation for details (work in progress)
