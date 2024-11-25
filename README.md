@@ -8,8 +8,7 @@ Sphinx-tippy allows you to create rich hover over tips as demonstrated here: htt
 
 ## What does it do?
 
-...
-
+You can see how the this works in the [example book](https://teachbooks.io/TeachBooks-sphinx-tippy-Example).
 
 ## Installation
 To install the Sphinx-Image-Inverter, follow these steps:
@@ -39,7 +38,7 @@ sphinx:
 
 ## Usage
 
-By following the steps above, the extension will be added automatically
+By following the steps above, the extension will be added automatically.
 
 
 ## Contribute
