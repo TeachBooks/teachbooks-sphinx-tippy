@@ -1,4 +1,4 @@
-# Sphinx extension: TeachBooks Tippy
+# Sphinx extension: Rich hover over tips
 
 ```{admonition} User types
 :class: tip
