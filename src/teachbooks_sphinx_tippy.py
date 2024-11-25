@@ -368,7 +368,7 @@ def collect_tips(
 
     # add the JS files
     for js_file in tippy_config.js_files:
-        app.add_js_file(js_file, loading_method="defer")
+        app.add_js_file(js_file, loading_method=None)
     app.add_js_file(
         str(js_path.relative_to(Path(app.outdir, "_static"))), loading_method="defer"
     )
