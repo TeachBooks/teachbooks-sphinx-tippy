@@ -2,8 +2,6 @@
 
 Rich tool tips in your TeachBook!
 
-See the documentation for details (work in progress)
-
 ## Introduction
 
 Sphinx-tippy allows you to create rich hover over tips as demonstrated here: https://sphinx-tippy.readthedocs.io/en/latest/. This TeachBooks Tippy extension makes it plug-and-play within a JupyterBook.
