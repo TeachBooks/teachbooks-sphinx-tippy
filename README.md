@@ -1,4 +1,4 @@
-# Sphinx extension: TeachBooks Tippy
+# Sphinx extension: Rich hover over tips
 
 Rich tool tips in your TeachBook!
 
