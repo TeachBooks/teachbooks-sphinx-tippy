@@ -1,4 +1,4 @@
-# Sphinx extension: Rich hover over tips
+# TwachBooks Sphinx extension: Rich hover over tips
 
 ```{admonition} User types
 :class: tip
@@ -9,14 +9,14 @@ Rich tool tips in your TeachBook!
 
 ## Introduction
 
-Sphinx-tippy allows you to create rich hover over tips as demonstrated here: https://sphinx-tippy.readthedocs.io/en/latest/. This TeachBooks Tippy extension makes it plug-and-play within a JupyterBook.
+Sphinx-tippy allows you to create rich hover over tips as demonstrated here: https://sphinx-tippy.readthedocs.io/en/latest/. This TeachBooks Tippy extension makes it plug-and-play within a TeachBook.
 
 ## What does it do?
 
 You can see how the this works in the [example book](https://teachbooks.io/TeachBooks-sphinx-tippy-Example).
 
 ## Installation
-To install the Sphinx-Image-Inverter, follow these steps:
+To install TeachBooks-Sphinx-Tippy, follow these steps:
 
 **Step 1: Install the Package**
 
