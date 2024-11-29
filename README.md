@@ -1,4 +1,4 @@
-# TwachBooks Sphinx extension: Rich hover over tips
+# Rich hover over tips
 
 ```{admonition} User types
 :class: tip
