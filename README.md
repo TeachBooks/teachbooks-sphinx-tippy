@@ -20,10 +20,6 @@ The differences with Sphinx-tippy are:
 - Default loading method of _defer_ changed to _None_ for supporting JavaScript.
 - Default support for [TeachBooks Sphinx Grasple](https://github.com/TeachBooks/Sphinx-Grasple-public) such that images are shown (as iframes are not loaded).
 
-Future differences with Sphinx-tippy are:
-
-- Addition of a directive _repeat_ to show content explicity. 
-
 ## What does it do?
 
 You can see how the this works in the [example book](https://teachbooks.io/TeachBooks-sphinx-tippy-Example).
