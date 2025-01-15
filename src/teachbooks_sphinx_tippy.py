@@ -40,7 +40,15 @@ def scb_static_path(app,exc):
     staticdir = os.path.join(app.builder.outdir, '_static')
     filename = os.path.join(staticdir,'tippy.css')
     with open(filename,"w") as css:
-        data = ".tippy-box {background-color:var(--pst-color-surface);color:var(--pst-color-text-base);border: 1px solid var(--pst-color-border);}"
+        data = """
+        .tippy-box {
+            background-color: var(--pst-color-surface);
+            color: var(--pst-color-text-base);
+            border: 1px solid var(--pst-color-border);
+            max-height: 600px; /* Set your desired maximum height */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        """
         css.write(data)
     
 
