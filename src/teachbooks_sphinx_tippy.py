@@ -154,6 +154,8 @@ def compile_config(app: Sphinx):
         "theme",
         "delay",
         "duration",
+        "boundary",
+        "appendTo",
     }
 
     if set(props.keys()) - supported_properties:
