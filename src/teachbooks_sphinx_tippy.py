@@ -144,7 +144,7 @@ def compile_config(app: Sphinx):
     if not isinstance(updates, dict):
         raise ExtensionError(f"tippy_props must be a dictionary, not a {type(updates)}")
     props = dict(
-        {"placement": "auto-start", "maxWidth": 500, "interactive": True}, **updates
+        {"placement": "auto-start", "maxWidth": 500, "interactive": True, "boundary": "document.body", "appendTo": "document.body"}, **updates
     )
 
     supported_properties = {
