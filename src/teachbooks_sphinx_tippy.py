@@ -774,7 +774,7 @@ def write_tippy_props_page(
                     tippy(link, {{
                         content: tip_html,
                         allowHTML: true,
-                        arrow: true,
+                        arrow: false,
                         {tippy_props},
                         {mathjax}
                     }});
