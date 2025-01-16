@@ -19,6 +19,9 @@ The differences with Sphinx-tippy are:
 - Default activation of sphinx.ext.mathjax.
 - Default loading method of _defer_ changed to _None_ for supporting JavaScript.
 - Default support for [TeachBooks Sphinx Grasple](https://github.com/TeachBooks/Sphinx-Grasple-public) such that images are shown (as iframes are not loaded).
+- Limit the showing of tool tips to the `<main>` anchor of the Sphinx book.
+- Limit the maximum height of a tool tip.
+- Force tool tips to remain with visible document body.
 
 ## What does it do?
 
