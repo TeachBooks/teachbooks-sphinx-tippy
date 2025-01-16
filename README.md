@@ -15,6 +15,7 @@ The differences with Sphinx-tippy are:
 - Limit the showing of tool tips to the `<main>` anchor of the Sphinx book.
 - Limit the maximum height of a tool tip.
 - Force tool tips to remain with visible document body.
+- No arrow that points from the tool tip to the link.
 
 ## What does it do?
 
