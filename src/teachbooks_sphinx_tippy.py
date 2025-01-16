@@ -69,7 +69,7 @@ def setup(app: Sphinx):
         "html",
         [list, tuple],
     )
-    app.add_config_value("tippy_anchor_parent_selector", "", "html")
+    app.add_config_value("tippy_anchor_parent_selector", "main", "html")
 
     app.add_config_value("tippy_custom_tips", {}, "html", (dict,))
     app.add_config_value(
