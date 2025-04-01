@@ -1,5 +1,4 @@
-# Rich hover over tips
-
+````{margin}
 ```{attributiongrey} Attribution
 :class: attribution
 This page reuses MIT licensed content from {cite:t}`tippy`. {fa}`quote-left`{ref}`Find out more here.<external_resources>`
@@ -11,8 +10,9 @@ This page is useful for user type 3, 4 and 5.
 ```
 
 {bdg-primary}`Sphinx Extension`
+````
 
-## Introduction
+# Rich hover over tips
 
 Sphinx-tippy allows you to create rich hover over tips as demonstrated here: https://sphinx-tippy.readthedocs.io/en/latest/. This TeachBooks Tippy extension makes it plug-and-play within a TeachBook.
 
