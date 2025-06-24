@@ -42,7 +42,7 @@ def scb_static_path(app,exc):
     with open(filename,"w") as css:
         data = """
         .tippy-box {
-            background-color: var(--pst-color-surface);
+            background-color: var(--pst-color-background);
             color: var(--pst-color-text-base);
             border: 1px solid var(--pst-color-border);
             max-height: 600px; /* Set your desired maximum height */
