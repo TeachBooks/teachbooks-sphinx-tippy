@@ -593,7 +593,10 @@ def fetch_doi_tips(app: Sphinx, data: dict[str, TippyPageData]) -> dict[str, str
         doi for page in data.values() for doi in page["dois"] if doi not in doi_cache
     }
     for doi in status_iterator(doi_fetch, "Fetching DOI tips", length=len(doi_fetch)):
-        url = f"{config.doi_api}{doi}"
+        if 'zenodo' in doi:
+            url = f"https://api.datacite.org/dois/{doi}"
+        else:
+            url = f"{config.doi_api}{doi}"
         try:
             data = requests.get(url).json()
         except Exception as exc:
@@ -602,6 +605,26 @@ def fetch_doi_tips(app: Sphinx, data: dict[str, TippyPageData]) -> dict[str, str
                 type="tippy",
                 subtype="doi",
             )
+        if 'zenodo' in doi:
+            # Zenodo has a different structure, so we need to adapt the data
+            title = [data['data']['attributes']['titles'][0]['title']]
+            authors = data['data']['attributes']['creators']
+            for author in authors:
+                author["given"] = author.get("givenName")
+                author['family'] = author.get("familyName")
+            publisher = data["data"]["attributes"]['publisher']
+            created = data["data"]["attributes"]['created']
+            date_parts = [created.split("T")[0].split("-")]
+            data = data | {
+                "message": {
+                    "title": title,
+                    "author": authors,
+                    "publisher": publisher,
+                    "created": {"date-parts": date_parts},
+                }
+            }
+        # sanitize the authors
+        data["message"]["author"] = [a for a in data["message"]["author"] if "given" in a]
         try:
             env = Environment()
             env.filters["map_join"] = map_join
