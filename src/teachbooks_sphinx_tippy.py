@@ -527,7 +527,8 @@ def generate_wikipedia_tooltip(title: str) -> str:
     """Generate a wikipedia tooltip, from a title."""
 
     url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{title}"
-    data = requests.get(url).json()
+    headers = {'User-Agent': f'TeachBooksTippy/{__version__} (https://github.com/TeachBooks/teachbooks-sphinx-tippy; info@teachbooks.io)'}
+    data = requests.get(url, headers=headers).json()
 
     extract_html = data["extract_html"]
     if "thumbnail" in data:
