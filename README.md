@@ -10,8 +10,8 @@ This page is useful for user type 3, 4 and 5.
 ```
 
 {bdg-primary}`Sphinx Extension`
-{bdg-link-light}`Included in TeachBooks Template <https://teachbooks.io/manual/external/template/README.html>`
-{bdg-link-primary-line}`Included in TeachBooks Favourites <https://teachbooks.io/manual/features/favourites.html>`
+{bdg-link-light}`Included in TeachBooks Template <../template/README.html>`
+{bdg-link-primary-line}`Included in TeachBooks Favourites <../../features/favourites.html>`
 ````
 
 # Rich hover over tips
@@ -64,4 +64,4 @@ sphinx:
 By following the steps above, the extension will be added automatically.
 
 ## Contribute
-This tool's repository is stored on [GitHub](https://github.com/TeachBooks/teachbooks-sphinx-tippy). The `README.md` of the branch `Manual` is also part of the [TeachBooks manual](https://teachbooks.io/manual/intro.html) as a submodule. If you'd like to contribute, you can create a fork and open a pull request on the [GitHub repository](https://github.com/TeachBooks/teachbooks-sphinx-tippy). To update the `README.md` shown in the TeachBooks manual, create a fork and open a merge request for the [GitHub repository of the manual](https://github.com/TeachBooks/manual). If you intent to clone the manual including its submodules, clone using: `git clone --recurse-submodulesgit@github.com:TeachBooks/manual.git`.
+This tool's repository is stored on [GitHub](https://github.com/TeachBooks/teachbooks-sphinx-tippy). The `README.md` of the branch `Manual` is also part of the TeachBooks manual (this file) as a submodule. If you'd like to contribute, you can create a fork and open a pull request on the [GitHub repository](https://github.com/TeachBooks/teachbooks-sphinx-tippy). To update the `README.md` shown in the TeachBooks manual, create a fork and open a merge request for the [GitHub repository of the manual](https://github.com/TeachBooks/manual). If you intent to clone the manual including its submodules, clone using: `git clone --recurse-submodulesgit@github.com:TeachBooks/manual.git`.
