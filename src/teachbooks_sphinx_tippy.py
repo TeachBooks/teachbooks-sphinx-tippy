@@ -601,14 +601,17 @@ def fetch_doi_tips(app: Sphinx, data: dict[str, TippyPageData]) -> dict[str, str
                 # Query the Zenodo API
                 url = f"https://zenodo.org/api/records/{record_id}"
                 data = requests.get(url).json()
-                LOGGER.warning(f"Zenodo data for {doi}: {data}")
-                title = [data['metadata']['attributes']['titles'][0]['title']]
-                authors = data['data']['attributes']['creators']
+                title = [data['metadata']['title']]
+                authors = data['metadata']['creators']
                 for author in authors:
-                    author["given"] = author.get("givenName")
-                    author['family'] = author.get("familyName")
-                publisher = data["data"]["attributes"]['publisher']
-                created = data["data"]["attributes"]['created']
+                    author["given"] = author['name'].split(",")[1].strip()
+                    author['family'] = author['name'].split(",")[0].strip()
+                LOGGER.warning(f"Authors: {authors}")
+                try:
+                    publisher = data["metadata"]['publisher']
+                except:
+                    publisher = "Zenodo"
+                created = data["metadata"]['publication_date']
                 date_parts = [created.split("T")[0].split("-")]
                 data = data | {
                     "message": {
