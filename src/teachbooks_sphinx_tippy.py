@@ -594,38 +594,43 @@ def fetch_doi_tips(app: Sphinx, data: dict[str, TippyPageData]) -> dict[str, str
         doi for page in data.values() for doi in page["dois"] if doi not in doi_cache
     }
     for doi in status_iterator(doi_fetch, "Fetching DOI tips", length=len(doi_fetch)):
-        if 'zenodo' in doi:
-            url = f"https://api.datacite.org/dois/{doi}"
-        else:
-            url = f"{config.doi_api}{doi}"
         try:
-            data = requests.get(url).json()
+            if 'zenodo' in doi:
+                # Zenodo has a different structure, so we need to adapt the data
+                record_id = doi.split(".")[-1]
+                # Query the Zenodo API
+                url = f"https://zenodo.org/api/records/{record_id}"
+                data = requests.get(url).json()
+                title = [data['metadata']['title']]
+                authors = data['metadata']['creators']
+                for author in authors:
+                    author["given"] = author['name'].split(",")[1].strip()
+                    author['family'] = author['name'].split(",")[0].strip()
+                try:
+                    publisher = data["metadata"]['publisher']
+                except:
+                    publisher = "Zenodo"
+                created = data["metadata"]['publication_date']
+                date_parts = [created.split("T")[0].split("-")]
+                data = data | {
+                    "message": {
+                        "title": title,
+                        "author": authors,
+                        "publisher": publisher,
+                        "created": {"date-parts": date_parts},
+                    }
+                }
+            else:
+                url = f"{config.doi_api}{doi}"
+                data = requests.get(url).json()
+            # sanitize the authors
+            data["message"]["author"] = [a for a in data["message"]["author"] if "given" in a]
         except Exception as exc:
             LOGGER.warning(
                 f"Could not fetch DOI data for {doi}: {exc} [tippy.doi]",
                 type="tippy",
                 subtype="doi",
             )
-        if 'zenodo' in doi:
-            # Zenodo has a different structure, so we need to adapt the data
-            title = [data['data']['attributes']['titles'][0]['title']]
-            authors = data['data']['attributes']['creators']
-            for author in authors:
-                author["given"] = author.get("givenName")
-                author['family'] = author.get("familyName")
-            publisher = data["data"]["attributes"]['publisher']
-            created = data["data"]["attributes"]['created']
-            date_parts = [created.split("T")[0].split("-")]
-            data = data | {
-                "message": {
-                    "title": title,
-                    "author": authors,
-                    "publisher": publisher,
-                    "created": {"date-parts": date_parts},
-                }
-            }
-        # sanitize the authors
-        data["message"]["author"] = [a for a in data["message"]["author"] if "given" in a]
         try:
             env = Environment()
             env.filters["map_join"] = map_join
