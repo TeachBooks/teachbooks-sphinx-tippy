@@ -604,8 +604,13 @@ def fetch_doi_tips(app: Sphinx, data: dict[str, TippyPageData]) -> dict[str, str
                 title = [data['metadata']['title']]
                 authors = data['metadata']['creators']
                 for author in authors:
-                    author["given"] = author['name'].split(",")[1].strip()
-                    author['family'] = author['name'].split(",")[0].strip()
+                    parts_name = author['name'].split(",")
+                    if len(parts_name)>1:
+                        author["given"] = parts_name[1].strip()
+                        author['family'] = parts_name[0].strip()
+                    else:
+                        author["family"] = parts_name[0].strip()
+                        author['given'] = ""
                 try:
                     publisher = data["metadata"]['publisher']
                 except:
