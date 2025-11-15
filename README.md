@@ -17,6 +17,9 @@ The differences with Sphinx-tippy are:
 - Force tool tips to remain with visible document body.
 - No arrow that points from the tool tip to the link.
 
+> [!NOTE]
+> For internal references/links, it is important that the file path does not contain spaces. If there are spaces, the tool tip will not be shown.
+
 ## What does it do?
 
 You can see how the this works in the [example book](https://teachbooks.io/TeachBooks-sphinx-tippy-Example).
@@ -52,4 +55,5 @@ sphinx:
 By following the steps above, the extension will be added automatically.
 
 ## Contribute
+
 This tool's repository is stored on [GitHub](https://github.com/TeachBooks/teachbooks-sphinx-tippy). The `README.md` of the branch `Manual` is also part of the [TeachBooks manual](https://teachbooks.io/manual/intro.html) as a submodule. If you'd like to contribute, you can create a fork and open a pull request on the [GitHub repository](https://github.com/TeachBooks/teachbooks-sphinx-tippy). To update the `README.md` shown in the TeachBooks manual, create a fork and open a merge request for the [GitHub repository of the manual](https://github.com/TeachBooks/manual). If you intent to clone the manual including its submodules, clone using: `git clone --recurse-submodulesgit@github.com:TeachBooks/manual.git`.
