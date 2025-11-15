@@ -18,7 +18,7 @@ The differences with Sphinx-tippy are:
 - No arrow that points from the tool tip to the link.
 
 > [!NOTE]
-> For internal references/links, it is important that the file path does not contain spaces. If there are spaces, the tool tip will not be shown.
+> For references/links, it is important that the (auto-generated) file path does not contain spaces. If there are spaces, the tool tip will not be shown.
 
 ## What does it do?
 
