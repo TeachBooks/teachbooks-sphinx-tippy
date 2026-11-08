@@ -9,13 +9,14 @@ Sphinx-tippy allows you to create rich hover over tips as demonstrated here: htt
 The differences with Sphinx-tippy are:
 
 - Default inclusion of useful CSS-file.
-- Default activation of sphinx.ext.mathjax.
+- Default activation of math rendering in tooltips.
 - Default loading method of _defer_ changed to _None_ for supporting JavaScript.
 - Default support for [TeachBooks Sphinx Grasple](https://github.com/TeachBooks/Sphinx-Grasple-public) such that images are shown (as iframes are not loaded).
 - Limit the showing of tool tips to the `<main>` anchor of the Sphinx book.
 - Limit the maximum height of a tool tip.
 - Force tool tips to remain with visible document body.
 - No arrow that points from the tool tip to the link.
+- Support for MathJax and KaTeX.
 
 > [!NOTE]
 > For references/links, it is important that the (auto-generated) file path does not contain spaces. If there are spaces, the tool tip will not be shown.

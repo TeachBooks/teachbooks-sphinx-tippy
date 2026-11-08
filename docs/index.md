@@ -255,10 +255,9 @@ tippy_custom_tips = {
 :::
 
 :::{confval} tippy_enable_mathjax
-Whether to enable tooltips for math equations, by default `False`.
+Whether to enable rendering of math in tooltips , by default `True`.
 
-Note, this requires the `sphinx.ext.mathjax` extension to be enabled.
-At present it will cause `mathjax` to be loaded on every page, even if it is not used.
+At present it will cause `mathjax` or `katex` to be loaded on every page, even if it is not used.
 :::
 
 :::{confval} tippy_js

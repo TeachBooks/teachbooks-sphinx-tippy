@@ -54,7 +54,6 @@ def scb_static_path(app,exc):
 
 def setup(app: Sphinx):
     """Setup the extension"""
-    app.setup_extension('sphinx.ext.mathjax')
     app.add_css_file('tippy.css')
     
     app.add_config_value("tippy_props", {}, "html")
@@ -232,9 +231,9 @@ def compile_config(app: Sphinx):
         return
     if (
         app.config.tippy_enable_mathjax
-        and app.builder.math_renderer_name != "mathjax"  # type: ignore[attr-defined]
+        and app.builder.math_renderer_name not in ["mathjax","katex"]  # type: ignore[attr-defined]
     ):
-        raise ExtensionError("tippy_enable_mathjax=True requires mathjax to be enabled")
+        raise ExtensionError(f"tippy_enable_mathjax=True requires mathjax or katex to be enabled, not {app.builder.math_renderer_name}.")
 
 
 class TippyData(TypedDict):
@@ -446,12 +445,7 @@ def create_id_to_tip_html(
         ):
             id_to_html[str(tag["id"])] = _get_header_html(header)
 
-        elif tag.name == "div" and (
-            all(
-                class_to_check in (tag.get("class") or [])
-                for class_to_check in ("math", "notranslate", "nohighlight")
-            )
-        ):
+        elif tag.name == "div" and "math" in (tag.get("class") or []):
             # remove an span with eqno class, since it is not needed
             # and it can cause issues with the tooltip
             # (e.g. if the span is the last element in the div)
@@ -785,6 +779,15 @@ def write_tippy_props_page(
         and app.builder.math_renderer_name == "mathjax"  # type: ignore[attr-defined]
         else ""
     )
+    katex = (
+        (
+            "onShow(instance) "
+            "{renderMathInElement(instance.popper)}"
+        )
+        if tippy_config.enable_mathjax
+        and app.builder.math_renderer_name == "katex"  # type: ignore[attr-defined]
+        else ""
+    )
     # TODO need to only enable when math,
     # and then need to ensure sphinx adds mathjax to the page
 
@@ -811,7 +814,7 @@ def write_tippy_props_page(
                         allowHTML: true,
                         arrow: false,
                         {tippy_props},
-                        {mathjax}
+                        {mathjax+katex}
                     }});
                 }};
             }};
