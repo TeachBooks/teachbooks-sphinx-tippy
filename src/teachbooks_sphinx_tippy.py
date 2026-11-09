@@ -41,13 +41,21 @@ def scb_static_path(app,exc):
     filename = os.path.join(staticdir,'tippy.css')
     with open(filename,"w") as css:
         data = """
-        .tippy-box {
-            background-color: var(--pst-color-background);
-            color: var(--pst-color-text-base);
-            border: 1px solid var(--pst-color-border);
-            max-height: 600px; /* Set your desired maximum height */
-            overflow-y: auto; /* Enable vertical scrolling */
-        }
+.tippy-box {
+    background-color: var(--pst-color-background);
+    color: var(--pst-color-text-base);
+    border: 1px solid var(--pst-color-border);
+    max-height: 600px; /* Set your desired maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+        
+.tippy-box div.math {
+    padding: 0.25em;
+}
+
+.tippy-box div.math:last-child .katex-display:last-child {
+    margin-bottom: 0em;
+}
         """
         css.write(data)
     
