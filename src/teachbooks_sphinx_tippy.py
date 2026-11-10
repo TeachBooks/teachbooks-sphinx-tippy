@@ -56,6 +56,10 @@ def scb_static_path(app,exc):
 .tippy-box div.math:last-child .katex-display:last-child {
     margin-bottom: 0em;
 }
+
+html[data-theme="dark"] .tippy-box .mwe-math-element {
+    filter: invert(1) hue-rotate(180deg) saturate(1.5) !important;
+}
         """
         css.write(data)
     
